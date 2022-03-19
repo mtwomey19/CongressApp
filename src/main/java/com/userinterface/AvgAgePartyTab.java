@@ -7,11 +7,11 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 import java.util.List;
 
-public class AvgAgePartyWindow extends TabBuilder {
+public class AvgAgePartyTab extends TabBuilder implements ITab {
     private Tab avgAgePartyTab;
     private VBox avgAgePartyVBox;
 
-    public AvgAgePartyWindow() {
+    public AvgAgePartyTab() {
         super("Find Average Age by Party:", "Party (Democrat, Republican, Independent)");
         this.avgAgePartyTab = new Tab("AvgAgeParty");
         this.avgAgePartyVBox = new VBox(10);
@@ -39,7 +39,7 @@ public class AvgAgePartyWindow extends TabBuilder {
     }
 
     private void setTextAvgAgeParty() {
-        String input = getTextField1().getText();
+        String input = getTextField().getText();
         String avgAge;
         List<String> parties = List.of("democrat", "republican", "independent");
         if (parties.contains(input)) {
@@ -49,7 +49,7 @@ public class AvgAgePartyWindow extends TabBuilder {
         }
         else {
             getOutput().setText("There is no member of Congress that is part of the "
-                    + "'" + getTextField1().getText() + "'" + " party."
+                    + "'" + getTextField().getText() + "'" + " party."
                     + "\nPlease enter another party.");
         }
     }

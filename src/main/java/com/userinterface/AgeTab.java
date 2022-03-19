@@ -9,11 +9,11 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class AgeWindow extends TabBuilder {
+public class AgeTab extends TabBuilder implements ITab {
     private Tab ageTab;
     private VBox ageVBox;
 
-    public AgeWindow() {
+    public AgeTab() {
         super("Find the Oldest Members of Congress:", "Top N (sorted from oldest to youngest)");
         this.ageTab = new Tab("Age");
         this.ageVBox = new VBox(10);
@@ -35,7 +35,7 @@ public class AgeWindow extends TabBuilder {
 
     public void searchButtonClicked() {
         getSearchButton().setOnAction((ActionEvent actionEvent) -> {
-            int ageTopN = Integer.parseInt(getTextField1().getText());
+            int ageTopN = Integer.parseInt(getTextField().getText());
 
             if (ageTopN > CongressConnector.getCongressListSize())
                 getOutput().setText("The number entered is greater than the number of Congress members.\nPlease enter a smaller number.");

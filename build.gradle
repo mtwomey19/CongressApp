@@ -39,8 +39,8 @@ dependencies {
 }
 
 application {
-    mainModule = 'com.userinterface'
-    mainClass = 'com.userinterface.CongressApp'
+    mainModule = 'com'
+    mainClass = 'com.congress.CongressClientApp'
 }
 
 jlink {

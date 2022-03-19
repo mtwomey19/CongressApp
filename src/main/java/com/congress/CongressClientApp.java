@@ -10,20 +10,20 @@ public class CongressClientApp extends Application {
 
     private CongressLoader congressLoader;
     private TabPane root;
-    private NameWindow nameWindow;
-    private PartyWindow partyWindow;
-    private AgeWindow ageWindow;
-    private AvgAgePartyWindow avgAgePartyWindow;
-    private TimeInOfficeWindow timeInOfficeWindow;
+    private NameTab nameTab;
+    private PartyTab partyTab;
+    private AgeTab ageTab;
+    private AvgAgePartyTab avgAgePartyTab;
+    private TimeInOfficeTab timeInOfficeTab;
 
     public CongressClientApp(){
         this.congressLoader = new CongressLoader("src/main/resources/main/CongressPersonTest4.json");
         this.root = new TabPane();
-        this.nameWindow = new NameWindow();
-        this.partyWindow = new PartyWindow();
-        this.ageWindow = new AgeWindow();
-        this.avgAgePartyWindow = new AvgAgePartyWindow();
-        this.timeInOfficeWindow = new TimeInOfficeWindow();
+        this.nameTab = new NameTab();
+        this.partyTab = new PartyTab();
+        this.ageTab = new AgeTab();
+        this.avgAgePartyTab = new AvgAgePartyTab();
+        this.timeInOfficeTab = new TimeInOfficeTab();
     }
 
     @Override
@@ -31,50 +31,26 @@ public class CongressClientApp extends Application {
         primaryStage.setMinHeight(300);
         primaryStage.setMinWidth(500);
 
-        setNameTab();
-        setPartyTab();
-        setAgeTab();
-        setAvgAgePartyTab();
-        setTimeInOfficeWindow();
+        setTab(nameTab);
+
+        setTab(partyTab);
+        partyTab.getVBox().getChildren().addAll(partyTab.getPieChart(), partyTab.getPieChartButton());
+        partyTab.pieChartButtonClicked();
+
+        setTab(ageTab);
+        setTab(avgAgePartyTab);
+        setTab(timeInOfficeTab);
+
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    private void setNameTab() {
-        root.getTabs().add(nameWindow.getTab());
-        nameWindow.getVBox(nameWindow.getTab());
-        nameWindow.searchButtonClicked();
-        nameWindow.addAdditionalComponentsToWindow(nameWindow.getVBox());
-    }
-
-    private void setPartyTab() {
-        root.getTabs().add(partyWindow.getTab());
-        partyWindow.getVBox(partyWindow.getTab());
-        partyWindow.searchButtonClicked();
-        partyWindow.addComponentsToWindow(partyWindow.getVBox(partyWindow.getTab()));
-        partyWindow.getVBox().getChildren().addAll(partyWindow.getPieChart(), partyWindow.getPieChartButton());
-    }
-
-    private void setAgeTab() {
-        root.getTabs().add(ageWindow.getTab());
-        ageWindow.getVBox(ageWindow.getTab());
-        ageWindow.searchButtonClicked();
-        ageWindow.addComponentsToWindow(ageWindow.getVBox());
-    }
-
-    private void setAvgAgePartyTab() {
-        root.getTabs().add(avgAgePartyWindow.getTab());
-        avgAgePartyWindow.getVBox(avgAgePartyWindow.getTab());
-        avgAgePartyWindow.searchButtonClicked();
-        avgAgePartyWindow.addComponentsToWindow(avgAgePartyWindow.getVBox());
-    }
-
-    private void setTimeInOfficeWindow() {
-        root.getTabs().add(timeInOfficeWindow.getTab());
-        timeInOfficeWindow.getVBox(timeInOfficeWindow.getTab());
-        timeInOfficeWindow.searchButtonClicked();
-        timeInOfficeWindow.addComponentsToWindow(timeInOfficeWindow.getVBox());
+    private void setTab(ITab tab) {
+        root.getTabs().add(tab.getTab());
+        tab.getVBox(tab.getTab());
+        tab.searchButtonClicked();
+        tab.addComponentsToTab(tab.getVBox());
     }
 }

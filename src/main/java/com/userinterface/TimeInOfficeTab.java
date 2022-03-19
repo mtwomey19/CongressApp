@@ -6,11 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
-public class TimeInOfficeWindow extends TabBuilder {
+public class TimeInOfficeTab extends TabBuilder implements ITab {
     private Tab timeInOfficeTab;
     private VBox timeInOfficeVBox;
 
-    public TimeInOfficeWindow() {
+    public TimeInOfficeTab() {
         super("Find the Congress Members with the Most Years in Office:", "Top N (sorted from most to least)");
         this.timeInOfficeTab = new Tab("TimeInOffice");
         this.timeInOfficeVBox = new VBox(10);
@@ -33,7 +33,7 @@ public class TimeInOfficeWindow extends TabBuilder {
 
     public void searchButtonClicked() {
         getSearchButton().setOnAction((ActionEvent actionEvent) -> {
-            int timeTopNInt = Integer.parseInt(getTextField1().getText());
+            int timeTopNInt = Integer.parseInt(getTextField().getText());
             String tempResultTime = "";
             // Data validation
             if (timeTopNInt > CongressConnector.getCongressListSize())

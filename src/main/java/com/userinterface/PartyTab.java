@@ -8,14 +8,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
-public class PartyWindow extends TabBuilder {
+public class PartyTab extends TabBuilder implements ITab {
 
     private Tab partyTab;
     private VBox partyVBox;
     private PieChart pieChart;
     private Button pieChartButton;
 
-    public PartyWindow() {
+    public PartyTab() {
         super("Find the Number of Congress People in Each Party:", "Party (Democrat, Republican, Independent)");
         this.partyTab = new Tab("Party");
         this.partyVBox = new VBox(10);
@@ -46,13 +46,13 @@ public class PartyWindow extends TabBuilder {
 
     public void searchButtonClicked() {
         getSearchButton().setOnAction((ActionEvent actionEvent) -> {
-            String partyEntered = getTextField1().getText().toLowerCase();
+            String partyEntered = getTextField().getText().toLowerCase();
             if (!partyEntered.equals("democrat") && !partyEntered.equals("republican") && !partyEntered.equals("independent"))
             getOutput().setText("There is no member of Congress that is part of the "
-                    + "'" + getTextField1().getText() + "'"
+                    + "'" + getTextField().getText() + "'"
                     + " party.\nPlease enter another party.");
         else {
-            int numberInParty = CongressConnector.getAnalyzerAccess().numberOfCongressMembersInParty(getTextField1().getText());
+            int numberInParty = CongressConnector.getAnalyzerAccess().numberOfCongressMembersInParty(getTextField().getText());
             getOutput().setText("Number of Congress Members: " +  numberInParty);
         }
         });

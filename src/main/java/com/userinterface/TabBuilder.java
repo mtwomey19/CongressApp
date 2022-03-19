@@ -6,35 +6,26 @@ import javafx.scene.layout.VBox;
 public class TabBuilder {
 
     private Label heading;
-    private Label context1;
-    private Label context2;
+    private Label prompt;
     private Button searchButton;
-    private TextField textField1;
-    private TextField textField2;
+    private TextField textField;
     private Label output;
 
     public TabBuilder(String heading, String context) {
         this.heading = new Label(heading);
-        this.context1 = new Label(context);
+        this.prompt = new Label(context);
         this.searchButton = new Button("Search");
-        this.textField1 = new TextField();
+        this.textField = new TextField();
         this.output = new Label();
     }
-    public TabBuilder(String heading, String context1, String context2) {
+    public TabBuilder(String heading) {
         this.heading = new Label(heading);
-        this.context1 = new Label(context1);
-        this.context2 = new Label(context2);
         this.searchButton = new Button("Search");
-        this.textField1 = new TextField();
-        this.textField2 = new TextField();
         this.output = new Label();
     }
 
-    public void addComponentsToWindow(VBox vBox) {
-        vBox.getChildren().addAll(heading, context1, textField1, searchButton, output);
-    }
-    public void addAdditionalComponentsToWindow(VBox vBox) {
-        vBox.getChildren().addAll(heading, context1, textField1, context2, textField2, searchButton, output);
+    public void addComponentsToTab(VBox vBox) {
+        vBox.getChildren().addAll(heading, prompt, textField, searchButton, output);
     }
 
     public Label getHeading() {
@@ -44,11 +35,11 @@ public class TabBuilder {
         this.heading = heading;
     }
 
-    public Label getContext1() {
-        return context1;
+    public Label getPrompt() {
+        return prompt;
     }
-    public void setContext1(Label context1) {
-        this.context1 = context1;
+    public void setPrompt(Label prompt) {
+        this.prompt = prompt;
     }
 
     public Button getSearchButton() {
@@ -58,11 +49,11 @@ public class TabBuilder {
         this.searchButton = searchButton;
     }
 
-    public TextField getTextField1() {
-        return textField1;
+    public TextField getTextField() {
+        return textField;
     }
-    public void setTextField1(TextField textField1) {
-        this.textField1 = textField1;
+    public void setTextField(TextField textField) {
+        this.textField = textField;
     }
 
     public Label getOutput() {
@@ -70,19 +61,5 @@ public class TabBuilder {
     }
     public void setOutput(Label output) {
         this.output = output;
-    }
-
-    public Label getContext2() {
-        return context2;
-    }
-    public void setContext2(Label context2) {
-        this.context2 = context2;
-    }
-
-    public TextField getTextField2() {
-        return textField2;
-    }
-    public void setTextField2(TextField textField2) {
-        this.textField2 = textField2;
     }
 }
