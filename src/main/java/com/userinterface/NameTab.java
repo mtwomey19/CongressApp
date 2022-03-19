@@ -57,5 +57,4 @@ public class NameTab extends TabBuilder implements ITab {
     public void addComponentsToTab(VBox vBox) {
         vBox.getChildren().addAll(getHeading(), firstName, firstNameTextField, lastName,lastNameTextField, getSearchButton(), getOutput());
     }
-
 }

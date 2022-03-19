@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
-public class CongressClientApp extends Application {
+public class CongressMain extends Application {
 
     private CongressLoader congressLoader;
     private TabPane root;
@@ -16,7 +16,7 @@ public class CongressClientApp extends Application {
     private AvgAgePartyTab avgAgePartyTab;
     private TimeInOfficeTab timeInOfficeTab;
 
-    public CongressClientApp(){
+    public CongressMain(){
         this.congressLoader = new CongressLoader("src/main/resources/main/CongressPersonTest4.json");
         this.root = new TabPane();
         this.nameTab = new NameTab();
