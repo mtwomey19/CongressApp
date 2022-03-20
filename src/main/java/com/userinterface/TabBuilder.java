@@ -18,6 +18,7 @@ public class TabBuilder {
         this.textField = new TextField();
         this.output = new Label();
     }
+    // used when multiple prompts/labels are needed...see NameTab for usage
     public TabBuilder(String heading) {
         this.heading = new Label(heading);
         this.searchButton = new Button("Search");

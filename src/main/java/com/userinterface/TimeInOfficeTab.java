@@ -19,7 +19,7 @@ public class TimeInOfficeTab extends TabBuilder implements ITab {
     public Tab getTab() {
         return timeInOfficeTab;
     }
-
+    // adds scroll bar to tab
     public VBox getVBox(Tab tab) {
         ScrollPane scrollPane = new ScrollPane();
         tab.setContent(scrollPane);

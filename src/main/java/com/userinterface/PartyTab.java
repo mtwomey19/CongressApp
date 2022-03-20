@@ -26,6 +26,7 @@ public class PartyTab extends TabBuilder implements ITab {
     public Tab getTab() {
         return partyTab;
     }
+    // adds scroll bar to tab
     public VBox getVBox(Tab tab) {
         ScrollPane scrollPane = new ScrollPane();
         tab.setContent(scrollPane);
@@ -48,10 +49,11 @@ public class PartyTab extends TabBuilder implements ITab {
         getSearchButton().setOnAction((ActionEvent actionEvent) -> {
             String partyEntered = getTextField().getText().toLowerCase();
             if (!partyEntered.equals("democrat") && !partyEntered.equals("republican") && !partyEntered.equals("independent"))
-            getOutput().setText("There is no member of Congress that is part of the "
+                getOutput().setText("There is no member of Congress that is part of the "
                     + "'" + getTextField().getText() + "'"
                     + " party.\nPlease enter another party.");
         else {
+            // getting number of Congress members in party user entered
             int numberInParty = CongressConnector.getAnalyzerAccess().numberOfCongressMembersInParty(getTextField().getText());
             getOutput().setText("Number of Congress Members: " +  numberInParty);
         }

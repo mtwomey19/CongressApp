@@ -20,7 +20,7 @@ public class AvgAgePartyTab extends TabBuilder implements ITab {
     public Tab getTab() {
         return avgAgePartyTab;
     }
-
+    // adds scroll bar to tab
     public VBox getVBox(Tab tab) {
         ScrollPane scrollPane = new ScrollPane();
         tab.setContent(scrollPane);
@@ -41,6 +41,7 @@ public class AvgAgePartyTab extends TabBuilder implements ITab {
     private void setTextAvgAgeParty() {
         String input = getTextField().getText().toLowerCase();
         String avgAge;
+        // retrieving average age for party user enters
         List<String> parties = List.of("democrat", "republican", "independent");
         if (parties.contains(input)) {
             input = input.substring(0, 1).toUpperCase() + input.substring(1);

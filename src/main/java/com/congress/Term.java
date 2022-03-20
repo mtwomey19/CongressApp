@@ -20,10 +20,10 @@ public class Term {
     @JsonProperty("party")
     private String party;
 
-    public Term(){}
+    public Term() {}
 
     // overloaded constructor to manually create a Term object
-    public Term(String startDate, String endDate, String chamber, String state, String party){
+    public Term(String startDate, String endDate, String chamber, String state, String party) {
         this.startDate = LocalDate.parse(startDate);
         this.endDate = LocalDate.parse(endDate);
         this.chamber = chamber;
@@ -31,7 +31,7 @@ public class Term {
         this.party = party;
     }
 
-    public String toString(){
+    public String toString() {
         return ("Term Start Date: " + startDate + "\n" +
                 "Term End Date: " + endDate + "\n" +
                 "Chamber: " + chamber + "\n" +
@@ -39,16 +39,16 @@ public class Term {
                 "Party: " + party);
     }
 
-    public String getParty(){
+    public String getParty() {
         return party;
     }
 
-    public int getStartDate(){
+    public int getStartDate() {
         int termStartYear = startDate.getYear();
         return termStartYear;
     }
 
-    public int getEndDate(){
+    public int getEndDate() {
         int termEndYear = endDate.getYear();
         return termEndYear;
     }

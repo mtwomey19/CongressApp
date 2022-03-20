@@ -18,7 +18,7 @@ public class CongressMember {
     private List<Term> termList;
 
 
-    public CongressMember(){}
+    public CongressMember() {}
 
     // Overloaded constructor to manually create politicians for testing
     public CongressMember(String firstName, String lastName, String birthday, String gender, List<Term> termList){
@@ -30,22 +30,22 @@ public class CongressMember {
     }
 
     @JsonSetter("name")
-    public void setName(Map<String, String> name){
+    public void setName(Map<String, String> name) {
         firstName = name.get("first");
         lastName = name.get("last");
     }
 
     @JsonSetter("bio")
-    public void setBio(Map<String, String> bio){
+    public void setBio(Map<String, String> bio) {
         birthday = LocalDate.parse(bio.get("birthday"));
         gender = bio.get("gender");
     }
 
-    public List<Term> getTermList(){
+    public List<Term> getTermList() {
         return termList;
 
     }
-    public String toString(){
+    public String toString() {
         return ("First Name: " + firstName + "\n" +
                 "Last Name: " + lastName + "\n" +
                 "Birthday: " + birthday + "\n" +
@@ -53,25 +53,27 @@ public class CongressMember {
                 "First Term: \n" + termList.get(0) + "\n");
     }
 
-    public String getName(){
+    public String getName() {
         String name = "";
         name = firstName.toLowerCase() + " " + lastName.toLowerCase();
         return name;
     }
 
-    public int getCongressMemberAge(){
+    public int getCongressMemberAge() {
         int birthYear = birthday.getYear();
         int congressMemberAge = Year.now().getValue() - birthYear;
         return congressMemberAge;
     }
 
-    public int getCongressMemberTimeInOffice(){
+    public int getCongressMemberTimeInOffice() {
         int numberOfYearsInOffice = 0;
         int yearsOfTerm;
 
-        for (Term term : termList){
+        for (Term term : termList) {
+            // if term ends after current year...only count years served; do not include future years
             if (term.getEndDate() > LocalDate.now().getYear())
                 yearsOfTerm = LocalDate.now().getYear() - term.getStartDate();
+            // for terms that do not extend into future
             else {
                 yearsOfTerm = term.getEndDate() - term.getStartDate();
             }

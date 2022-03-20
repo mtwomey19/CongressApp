@@ -10,19 +10,20 @@ public class CongressLoader {
 
     private File file;
 
-    public CongressLoader(String filePath){
-        this.file = new File(filePath);
+    public CongressLoader(String filePath) {
+        this.file = new File(filePath); //
     }
 
     public List<CongressMember> loadCongressMember() {
+        // Jackson ObjectMapper class used for converting JSON strings into Java objects
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         mapper.registerModule(new JavaTimeModule());
 
-        // Loading data from JSON file into a list
         try {
+            // create array of CongressMember objects from reading JSON file
             CongressMember[] congressMemberArray = mapper.readValue(file, CongressMember[].class);
-            List<CongressMember> congressMemberList = Arrays.asList(congressMemberArray);
+            List<CongressMember> congressMemberList = Arrays.asList(congressMemberArray); // convert to list
             return congressMemberList;
         } catch(Exception e) {
             System.err.println("Cannot find file that matches the file path entered.\n" + e.getMessage());

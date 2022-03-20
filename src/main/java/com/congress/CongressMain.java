@@ -16,7 +16,7 @@ public class CongressMain extends Application {
     private AvgAgePartyTab avgAgePartyTab;
     private TimeInOfficeTab timeInOfficeTab;
 
-    public CongressMain(){
+    public CongressMain() {
         this.congressLoader = new CongressLoader("src/main/resources/json/CongressMembers.json");
         this.root = new TabPane();
         this.nameTab = new NameTab();

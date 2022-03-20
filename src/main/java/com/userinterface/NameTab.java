@@ -31,6 +31,7 @@ public class NameTab extends TabBuilder implements ITab {
     public Tab getTab() {
         return name;
     }
+    // adds scroll bar to tab
     public VBox getVBox(Tab tab) {
         ScrollPane scrollPane = new ScrollPane();
         tab.setContent(scrollPane);

@@ -22,6 +22,7 @@ public class AgeTab extends TabBuilder implements ITab {
     public Tab getTab() {
         return ageTab;
     }
+    // adds scroll bar to tab
     public VBox getVBox(Tab tab) {
         ScrollPane scrollPane = new ScrollPane();
         tab.setContent(scrollPane);
@@ -35,7 +36,7 @@ public class AgeTab extends TabBuilder implements ITab {
 
     public void searchButtonClicked() {
         getSearchButton().setOnAction((ActionEvent actionEvent) -> {
-            int ageTopN = Integer.parseInt(getTextField().getText());
+            int ageTopN = Integer.parseInt(getTextField().getText()); // retrieve user-entered topN
 
             if (ageTopN > CongressConnector.getCongressListSize())
                 getOutput().setText("The number entered is greater than the number of Congress members.\nPlease enter a smaller number.");
