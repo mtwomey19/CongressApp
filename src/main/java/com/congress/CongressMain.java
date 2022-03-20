@@ -37,8 +37,8 @@ public class CongressMain extends Application {
         partyTab.getVBox().getChildren().addAll(partyTab.getPieChartButton(), partyTab.getPieChart());
         partyTab.pieChartButtonClicked();
 
-        setTab(ageTab);
         setTab(avgAgePartyTab);
+        setTab(ageTab);
         setTab(timeInOfficeTab);
 
 
