@@ -1,7 +1,7 @@
 package com.congress;
 
 public class CongressConnector {
-    private static CongressLoader congressLoader = new CongressLoader("src/main/resources/main/CongressPersonTest4.json");
+    private static CongressLoader congressLoader = new CongressLoader("src/main/resources/json/CongressMembers.json");
     private static CongressAnalyzer congressAnalyzer = new CongressAnalyzer(congressLoader.loadCongressMember());
 
     public static CongressAnalyzer getAnalyzerAccess() {

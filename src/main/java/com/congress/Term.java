@@ -32,24 +32,24 @@ public class Term {
     }
 
     public String toString(){
-        return ("Term Start Date: " + this.startDate + "\n" +
-                "Term End Date: " + this.endDate + "\n" +
-                "Chamber: " + this.chamber + "\n" +
-                "State: " + this.state + "\n" +
-                "Party: " + this.party);
+        return ("Term Start Date: " + startDate + "\n" +
+                "Term End Date: " + endDate + "\n" +
+                "Chamber: " + chamber + "\n" +
+                "State: " + state + "\n" +
+                "Party: " + party);
     }
 
     public String getParty(){
-        return this.party;
+        return party;
     }
 
     public int getStartDate(){
-        int termStartYear = this.startDate.getYear();
+        int termStartYear = startDate.getYear();
         return termStartYear;
     }
 
     public int getEndDate(){
-        int termEndYear = this.endDate.getYear();
+        int termEndYear = endDate.getYear();
         return termEndYear;
     }
 }

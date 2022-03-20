@@ -31,51 +31,51 @@ public class CongressMember {
 
     @JsonSetter("name")
     public void setName(Map<String, String> name){
-        this.firstName = name.get("first");
-        this.lastName = name.get("last");
+        firstName = name.get("first");
+        lastName = name.get("last");
     }
 
     @JsonSetter("bio")
     public void setBio(Map<String, String> bio){
-        this.birthday = LocalDate.parse(bio.get("birthday"));
-        this.gender = bio.get("gender");
+        birthday = LocalDate.parse(bio.get("birthday"));
+        gender = bio.get("gender");
     }
 
     public List<Term> getTermList(){
-        return this.termList;
+        return termList;
 
     }
     public String toString(){
-        return ("First Name: " + this.firstName + "\n" +
-                "Last Name: " + this.lastName + "\n" +
-                "Birthday: " + this.birthday + "\n" +
-                "Gender: " + this.gender + "\n\n" +
-                "First Term: \n" + this.termList.get(0) + "\n");
+        return ("First Name: " + firstName + "\n" +
+                "Last Name: " + lastName + "\n" +
+                "Birthday: " + birthday + "\n" +
+                "Gender: " + gender + "\n\n" +
+                "First Term: \n" + termList.get(0) + "\n");
     }
 
     public String getName(){
         String name = "";
-        name = this.firstName.toLowerCase() + " " + this.lastName.toLowerCase();
+        name = firstName.toLowerCase() + " " + lastName.toLowerCase();
         return name;
     }
 
     public int getCongressMemberAge(){
-        int birthYear = this.birthday.getYear();
+        int birthYear = birthday.getYear();
         int congressMemberAge = Year.now().getValue() - birthYear;
         return congressMemberAge;
     }
 
     public int getCongressMemberTimeInOffice(){
         int numberOfYearsInOffice = 0;
-        int yearsOfTerm = 0;
+        int yearsOfTerm;
 
-        for (Term term : this.termList){
+        for (Term term : termList){
             if (term.getEndDate() > LocalDate.now().getYear())
                 yearsOfTerm = LocalDate.now().getYear() - term.getStartDate();
             else {
                 yearsOfTerm = term.getEndDate() - term.getStartDate();
             }
-            numberOfYearsInOffice = numberOfYearsInOffice + yearsOfTerm;
+            numberOfYearsInOffice += yearsOfTerm;
         }
         return numberOfYearsInOffice;
     }

@@ -20,7 +20,7 @@ public class PartyTab extends TabBuilder implements ITab {
         this.partyTab = new Tab("Party");
         this.partyVBox = new VBox(10);
         this.pieChart = new PieChart();
-        this.pieChartButton = new Button("Search");
+        this.pieChartButton = new Button("Pie Chart");
     }
 
     public Tab getTab() {

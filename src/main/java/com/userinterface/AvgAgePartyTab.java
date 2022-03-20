@@ -39,7 +39,7 @@ public class AvgAgePartyTab extends TabBuilder implements ITab {
     }
 
     private void setTextAvgAgeParty() {
-        String input = getTextField().getText();
+        String input = getTextField().getText().toLowerCase();
         String avgAge;
         List<String> parties = List.of("democrat", "republican", "independent");
         if (parties.contains(input)) {

@@ -43,7 +43,7 @@ public class CongressAnalyzer {
     }
 
     public List<CongressMember> oldestCongressMembers(int topN){
-        List<CongressMember> oldestCongressMember = this.congressMemberListOriginal;
+        List<CongressMember> oldestCongressMember = congressMemberListOriginal;
         List<CongressMember> topNOldestCongressMembers = new ArrayList<>();
         // Sorting list from oldest to youngest
         for (int firstCM = 0; firstCM < oldestCongressMember.size(); firstCM++){
@@ -93,7 +93,7 @@ public class CongressAnalyzer {
         independentAges = sumAge(independentAgeList);
 
         // Average age calculations
-        double avgAgeDemocrat, avgAgeRepublican = 0, avgAgeIndependent = 0;
+        double avgAgeDemocrat, avgAgeRepublican, avgAgeIndependent;
         avgAgeDemocrat = calculateAvgAge(democratAgeList, democratAges);
         avgAgeRepublican = calculateAvgAge(republicanAgeList, republicanAges);
         avgAgeIndependent = calculateAvgAge(independentAgeList, independentAges);
@@ -114,12 +114,12 @@ public class CongressAnalyzer {
     }
     private double calculateAvgAge(List<Integer> partyAgeList, double sumAge) {
         if (partyAgeList.size() > 0)
-            return sumAge / partyAgeList.size();
+            return Math.round(sumAge / partyAgeList.size());
         else return 0;
     }
 
     public List<CongressMember> CongressPeopleTimeInOfficeSorted(int topN){
-        List<CongressMember> timeInOffice = this.congressMemberListOriginal;
+        List<CongressMember> timeInOffice = congressMemberListOriginal;
         List<CongressMember> topNTimeInOffice = new ArrayList<>();
 
         // sorting congress people list by time in office (greatest to least) so the list can be reduced properly in the next step

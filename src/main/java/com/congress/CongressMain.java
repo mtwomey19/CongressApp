@@ -17,7 +17,7 @@ public class CongressMain extends Application {
     private TimeInOfficeTab timeInOfficeTab;
 
     public CongressMain(){
-        this.congressLoader = new CongressLoader("src/main/resources/main/CongressPersonTest4.json");
+        this.congressLoader = new CongressLoader("src/main/resources/json/CongressMembers.json");
         this.root = new TabPane();
         this.nameTab = new NameTab();
         this.partyTab = new PartyTab();
@@ -34,7 +34,7 @@ public class CongressMain extends Application {
         setTab(nameTab);
 
         setTab(partyTab);
-        partyTab.getVBox().getChildren().addAll(partyTab.getPieChart(), partyTab.getPieChartButton());
+        partyTab.getVBox().getChildren().addAll(partyTab.getPieChartButton(), partyTab.getPieChart());
         partyTab.pieChartButtonClicked();
 
         setTab(ageTab);
