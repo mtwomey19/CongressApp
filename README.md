@@ -1,6 +1,6 @@
 # CongressApp
 
-## Search information on Congress ranging from individual information to party statistics.
+## Search information on Congress members and political parties.
 
 A JavaFX window launches with tabs for:
   * Verifying Congress members by name
